@@ -1,17 +1,18 @@
 # Android-Demo-App
 
-Initial Setup:
-Install and configure JDK
-Install and configure Maven
-Setup your IDE (Preferably Eclipse IDE)
-Import cloned repository as project
-Add your test case classes under `testcases` package
-Add your test data into `TestData.xslx` file
-Update `testng.xml` file for test classes
-Simply run `mvn clean install` command to run your test cases
+<h3> Initial Setup: </h3>
+
+<p> - Install and configure JDK </p>
+<p> - Install and configure Maven </p>
+<p> - Setup your IDE (Preferably Eclipse IDE) </p>
+<p> - Import cloned repository as project </p>
+<p> - Add your test case classes under `testcases` package </p>
+<p> - Add your test data into `TestData.xslx` file </p>
+<p> - Update `testng.xml` file for test classes </p>
+<p> - Simply run `mvn clean install` command to run your test cases </p>
 
 
-Framework Explanation :
+<h3> Framework Explanation :</h3>
 
 1. /src/main/java/base : Contains classes which define the appium start and close related functions with the caps and initializations.
 2. /src/main/java/logger: contain class to log the execution of android appium.
