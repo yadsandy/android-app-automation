@@ -40,7 +40,7 @@ public class DataReader {
             workBook = new XSSFWorkbook(inputStream);
             int totalSheetCount = workBook.getNumberOfSheets();
             try {
-            generalConfigSheet = workBook.getSheet("GeneralConfig");
+                generalConfigSheet = workBook.getSheet("GeneralConfig");
                 //This function will initialize all general config variables based on the column names
                 initializegeneralConfigData();
                 //Initializing the test cases
@@ -139,7 +139,6 @@ public class DataReader {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // System.out.println("The value of "+fieldName+" : is: "+cellValue);
         return cellValue.trim();
 
     }
@@ -174,7 +173,6 @@ public class DataReader {
                 case Constants.APP_PACKAGE:
                     GlobalVars.appPackage = getFieldValue(fieldName);
                     break;
-
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -223,7 +221,6 @@ public class DataReader {
      * @return org.openqa.selenium.By pageElement
      */
     public Map<String, DataElements> getClassData(String testSuiteName) {
-        // logger.debug("Finding" + testSuiteName + "in data sheet");
         Map<String, DataElements> dataElementMap = new HashMap<String, DataElements>();
         for (Data data : dataObjectRepo) {
             if (data.getSuiteName().equalsIgnoreCase(testSuiteName)) {

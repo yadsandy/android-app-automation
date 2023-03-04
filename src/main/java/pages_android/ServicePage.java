@@ -25,7 +25,6 @@ public class ServicePage {
     CommonFunctions commonFunctions;
 
     public ServicePage(AppiumDriver driver) {
-        driver = GlobalVars.driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
         commonFunctions = new CommonFunctions();
     }
@@ -33,10 +32,11 @@ public class ServicePage {
     // Select the service you need from the list
     public void clickOnService(String service) throws InterruptedException {
         boolean serviceChecked = checkValueAvailability(service);
+        if(!serviceChecked){
         do {
             commonFunctions.verticalSwipeByPercentages();
             serviceChecked = checkValueAvailability(service);
-        } while (!serviceChecked);
+        } while (!serviceChecked);}
     }
 
     // click on proceed button
@@ -89,11 +89,11 @@ public class ServicePage {
     }
 
     // To select the room and room quantity
-    public void selectRoomAndQuantiy(String room1, String room2, int bathRoomQty, int bedRoomQty) throws InterruptedException {
+    public void selectRoomAndQuantity(String room1, String room2, int bathRoomQty, int bedRoomQty) throws InterruptedException {
         clickOnRoomFromSelectionScreen(room1);
         clickOnBedRoomQuantity(bedRoomQty);
         clickOnRoomFromSelectionScreen(room2);
-        clickOnBathRoomWithQuantity(bedRoomQty);
+        clickOnBathRoomWithQuantity(bathRoomQty);
 
     }
 }

@@ -29,7 +29,6 @@ public class AppiumManager {
                     .withArgument(GeneralServerFlag.BASEPATH, "/wd/hub")
                     .withArgument(GeneralServerFlag.SESSION_OVERRIDE);
         }
-
         service = AppiumDriverLocalService.buildService(builder);
         service.start();
     }

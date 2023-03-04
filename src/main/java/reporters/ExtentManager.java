@@ -10,7 +10,7 @@ import java.util.Date;
 public class ExtentManager {
 
     public static final String EXTENT_REPORTS = "ExtentReports";
-    public static String extentpath = System.getProperty("user.dir") + "/target";
+    public static String extentPath = System.getProperty("user.dir") + "/target";
     public static String extentHtmlFile = EXTENT_REPORTS + ".html";
     public static String extentScreenShot = "screenshot.png";
     private static ExtentReports extent = null;
@@ -19,8 +19,8 @@ public class ExtentManager {
         if (extent == null) {
 
             String timeStamp = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date());
-            extentpath = extentpath + "//" + EXTENT_REPORTS + timeStamp;
-            File file = new File(extentpath);
+            extentPath = extentPath + "//" + EXTENT_REPORTS + timeStamp;
+            File file = new File(extentPath);
             if (!file.exists()) {
                 boolean bool = file.mkdir();
                 if (bool) {

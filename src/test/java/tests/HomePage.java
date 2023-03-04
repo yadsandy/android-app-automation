@@ -1,13 +1,14 @@
 package tests;
 
-import org.testng.annotations.Test;
 import base.TestBase;
+import org.testng.annotations.Test;
 import pages_android.SchedulePage;
 import pages_android.ServicePage;
 import pages_android.WelcomePage;
 import utils.Utils;
 
 import java.lang.reflect.Method;
+
 public class HomePage extends TestBase {
 
     @Test(enabled = true, description = "This method to verify the repeatable options on schedule screen")
@@ -29,7 +30,7 @@ public class HomePage extends TestBase {
         servicePage.selectServiceFromScreenAndProceed(service);
         Utils.logStepInfo("service is successfully selected");
 
-        servicePage.selectRoomAndQuantiy(bedroom, bathroom, Integer.parseInt(qtyOfBedroom),
+        servicePage.selectRoomAndQuantity(bedroom, bathroom, Integer.parseInt(qtyOfBedroom),
                 Integer.parseInt(qtyOfBathroom));
         Utils.logStepInfo("rooms and quantity are selected is successfully selected");
 

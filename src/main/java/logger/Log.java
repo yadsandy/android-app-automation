@@ -4,7 +4,6 @@ import org.apache.log4j.FileAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.SimpleLayout;
-
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -45,35 +44,12 @@ public class Log {
     }
 
     // Need to create these methods, so that they can be called
-
     public static void info(String message) {
         String timeStamp = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new Date());
         Log.info(timeStamp + "-" + message);
 
     }
-
-    public static void warn(String message) {
-
-        Log.warn(message);
-
-    }
-
     public static void error(String message) {
-
         Log.error(message);
-
     }
-
-    public static void fatal(String message) {
-
-        Log.fatal(message);
-
-    }
-
-    public static void debug(String message) {
-
-        Log.debug(message);
-
-    }
-
 }

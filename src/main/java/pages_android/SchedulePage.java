@@ -15,33 +15,32 @@ import java.util.Set;
 
 public class SchedulePage {
 
-	// List of all the schedule page locators
-	@FindBy(xpath = "//android.view.View[@content-desc='Repeat']/following-sibling::android.view.View[1]/android.view.View/android.view.View")
-	public List<WebElement> getRepeatOptions_Txt;
-	CommonFunctions commonFunctions;
+    // List of all the schedule page locators
+    @FindBy(xpath = "//android.view.View[@content-desc='Repeat']/following-sibling::android.view.View[1]/android.view.View/android.view.View")
+    public List<WebElement> getRepeatOptions_Txt;
+    CommonFunctions commonFunctions;
 
-	public SchedulePage(AppiumDriver driver) {
-		driver = GlobalVars.driver;
-		PageFactory.initElements(new AppiumFieldDecorator(driver), this);
-		commonFunctions = new CommonFunctions();
-	}
+    public SchedulePage(AppiumDriver driver) {
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
+        commonFunctions = new CommonFunctions();
+    }
 
-	// This method is to check the repeat values and compare it with the actual
-	// values
-	public void checkRepeatValues(String values) throws Throwable {
-		Set<String> set = new HashSet<String>();
-		Assert.assertTrue(
-				commonFunctions.waitForVisibilityOfElement(getRepeatOptions_Txt.get(0), "Repeat option not visible"));
-		for (WebElement selectedService : getRepeatOptions_Txt) {
-			set.add(commonFunctions.getAttributeValue(selectedService, "content-desc"));
-		}
-		commonFunctions.slideVerticalByCoordinate(0.7, 0.7, 0.2, 0.7);
-		for (WebElement selectedService : getRepeatOptions_Txt) {
-			set.add(commonFunctions.getAttributeValue(selectedService, "content-desc"));
-		}
-		String valuesFromUI = set.toString().replaceAll("[^a-zA-Z0-9]", " ").trim();
-		Assert.assertEquals(values, valuesFromUI, "Expected values are: " + valuesFromUI);
+    // This method is to check the repeat values and compare it with the actual
+    // values
+    public void checkRepeatValues(String values) throws Throwable {
+        Set<String> set = new HashSet<String>();
+        Assert.assertTrue(
+                commonFunctions.waitForVisibilityOfElement(getRepeatOptions_Txt.get(0), "Repeat option not visible"));
+        for (WebElement selectedService : getRepeatOptions_Txt) {
+            set.add(commonFunctions.getAttributeValue(selectedService, "content-desc"));
+        }
+        commonFunctions.slideVerticalByCoordinate(0.7, 0.7, 0.2, 0.7);
+        for (WebElement selectedService : getRepeatOptions_Txt) {
+            set.add(commonFunctions.getAttributeValue(selectedService, "content-desc"));
+        }
+        String valuesFromUI = set.toString().replaceAll("[^a-zA-Z0-9]", " ").trim();
+        Assert.assertEquals(values, valuesFromUI, "Expected values are: " + valuesFromUI);
 
-	}
+    }
 
 }

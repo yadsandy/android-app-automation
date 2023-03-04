@@ -8,28 +8,20 @@ import logger.Log;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.Reporter;
-import org.testng.asserts.SoftAssert;
 import reporters.ExtentManager;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.RenderedImage;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
+import java.io.File;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Calendar;
 import java.util.Date;
 
 public class Utils {
     public static long IMPLICIT_WAIT = 20;
-    public static ArrayList<String> methodToBeExecuted = new ArrayList<String>();
     private static ExtentTest test;
     private static ExtentReports extent;
 
@@ -66,12 +58,6 @@ public class Utils {
         Reporter.log(message);
     }
 
-
-    public static void logStepAction(String message) {
-        test.log(Status.PASS, message);
-        // Utils.captureScreenshotNew(result);
-    }
-
     /*
      * This function will return the formatted file name with date and time appended
      */
@@ -83,14 +69,13 @@ public class Utils {
     }
 
     /* capturing screenshot */
-    public static String captureScreenshot(ITestResult result) throws IOException, InterruptedException {
-        String screen = null;
+    public static void captureScreenshot(ITestResult result) throws IOException, InterruptedException {
         try {
             String screenshotName = Utils.getFileName(result.getName());
 
             try {
                 File screenshot = ((TakesScreenshot) GlobalVars.driver).getScreenshotAs(OutputType.FILE);
-                String path = ExtentManager.extentpath + "/" + screenshotName + ".png";
+                String path = ExtentManager.extentPath + "/" + screenshotName + ".png";
                 File destination = new File(path);
                 try {
                     FileUtils.copyFile(screenshot, destination);
@@ -108,33 +93,5 @@ public class Utils {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return screen;
     }
-
-    public static String captureScreenshotNew() {
-        String screen = null;
-        try {
-
-            StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-            String methodName = stackTrace[3].getMethodName();
-
-            System.out.println("Method Name : " + methodName);
-            String timeStamp = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss.SSS").format(new Date());
-
-            File screenshot = ((TakesScreenshot) GlobalVars.driver).getScreenshotAs(OutputType.FILE);
-            String path = ExtentManager.extentpath + "/" + methodName + "_" + timeStamp + ".png";
-            File destination = new File(path);
-
-            try {
-                FileUtils.copyFile(screenshot, destination);
-            } catch (IOException e) {
-                System.out.println("Capture Failed " + e.getMessage());
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return screen;
-    }
-
 }

@@ -13,10 +13,9 @@ public class WelcomePage {
     // locators of Welcome page
     @FindBy(xpath = "//android.widget.Button[@content-desc='Get Started']")
     public WebElement getStarted_Lbl;
-    CommonFunctions commonFunctions = null;
+    CommonFunctions commonFunctions;
 
     public WelcomePage(AppiumDriver driver) {
-        driver = GlobalVars.driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
         commonFunctions = new CommonFunctions();
     }
