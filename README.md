@@ -7,6 +7,7 @@
 <p> - Install SDK and generate an Emulator for the execution with android v12 </p>
 <p> - Setup your IDE (Preferably Eclipse IDE) </p>
 <p> - Import cloned repository as project </p>
+<p> - Add TestNg library to the project </p>
 <p> - Update the pom.xml file with your system version in maven-compiler-plugin for  <source>java-version</source> and <target>18</target>
 <p> - Simply run `mvn clean install` command or testng.xml file to run your test cases </p>
 <p> - Check the reports in the target folder > ExtentReports<ExecutionTime> folder for the execution results and logs.
