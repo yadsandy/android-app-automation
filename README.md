@@ -4,6 +4,7 @@
 
 <p> - Install and configure JDK </p>
 <p> - Install and configure Maven </p>
+<p> - Install SDK and generate an Emulator for the execution with android v12 </p>
 <p> - Setup your IDE (Preferably Eclipse IDE) </p>
 <p> - Import cloned repository as project </p>
 <p> - Add your test case classes under `testcases` package </p>
@@ -44,6 +45,4 @@
 <img width="496" alt="Screenshot 41" src="https://user-images.githubusercontent.com/6880146/222898614-10274f1d-eafb-45b0-9bb5-d141e8af6114.png">
 
 * Now try again by running the testng.xml file.
-
-
-
+ 
