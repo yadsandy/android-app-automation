@@ -34,7 +34,6 @@ public class TestBase extends GlobalVars {
     protected Map<String, DataElements> dataElementMap = null;
     AppiumManager appiumManager = new AppiumManager();
     DataReader oDataReader = null;
-
     public void initGlobalVars() {
         try {
             GlobalVars.prop = new Properties();
@@ -92,7 +91,7 @@ public class TestBase extends GlobalVars {
         Test test = method.getAnnotation(Test.class);
         Utils.initializeExtentTest(method.getName(), test.description(), this.getClass().getName());
         Log.startTestCase(method.getName());
-        Utils.logStepInfo("---- HFF app Launched ----");
+        Utils.logStepInfo("---- Demo app Launched ----");
     }
 
     @AfterMethod
@@ -110,7 +109,6 @@ public class TestBase extends GlobalVars {
     public void tearDownSuite(ITestContext context) {
         Utils.closeExtentTest();
         driver.quit();
-        //Auto Stopped Appium Server
         appiumManager.stopAppium();
     }
 

@@ -1,7 +1,6 @@
 package tests;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.Test;
 import base.TestBase;
 import pages_android.SchedulePage;
 import pages_android.ServicePage;
@@ -9,7 +8,6 @@ import pages_android.WelcomePage;
 import utils.Utils;
 
 import java.lang.reflect.Method;
-
 public class HomePage extends TestBase {
 
     @Test(enabled = true, description = "This method to verify the repeatable options on schedule screen")
@@ -42,7 +40,7 @@ public class HomePage extends TestBase {
         Utils.logStepInfo("clicked on proceed option.");
 
         schedulePage.checkRepeatValues(repeatValues);
-        Utils.logStepInfo("repate values verified successfully.");
+        Utils.logStepInfo("repeated values verified successfully.");
 
     }
 

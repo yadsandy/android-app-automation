@@ -66,31 +66,6 @@ public class Utils {
         Reporter.log(message);
     }
 
-    /* Function to assert and log the steps info in extent report */
-    public static void assertAndlogStepInfo(boolean isResult, boolean isSoftAssert, String stepInfo)
-            throws IOException, InterruptedException {
-        logStepInfo(isResult, stepInfo);
-        if (isSoftAssert) {
-            SoftAssert sAssert = new SoftAssert();
-            sAssert.assertTrue(isResult, stepInfo);
-        } else {
-            Assert.assertTrue(isResult, stepInfo);
-        }
-    }
-
-    /* Function to log the steps info in extent report */
-    public static void logStepInfo(boolean isResult, String stepInfo) {
-        if (isResult) {
-            test.log(Status.PASS, stepInfo + " | Status: Pass");
-            // Thread.sleep(5000);
-            // Utils.captureScreenshotNew();
-        } else {
-            test.log(Status.FAIL, stepInfo + " | Status: Fail");
-            // Utils.captureScreenshotNew();
-
-        }
-
-    }
 
     public static void logStepAction(String message) {
         test.log(Status.PASS, message);

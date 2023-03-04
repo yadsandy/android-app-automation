@@ -21,30 +21,6 @@ public class DataReader {
     Workbook workBook = null;
     org.apache.poi.ss.usermodel.Sheet generalConfigSheet = null;
 
-    public static List<Data> getDataObjectRepo() {
-        return dataObjectRepo;
-    }
-
-    public static String readProperty(String property) {
-        Properties prop;
-        String value = null;
-        try {
-            prop = new Properties();
-            prop.load(new FileInputStream(new File("config.properties")));
-
-            value = prop.getProperty(property);
-
-            if (value == null || value.isEmpty()) {
-                throw new Exception("Value not set or empty");
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return value;
-    }
-
     public void setupDataSheet() throws IOException {
         String testDataPath = baseDirectory.getCanonicalPath() + "//src//main//resources//TestData//testdata";
         setDataObject(testDataPath + ".xlsx");
@@ -64,16 +40,11 @@ public class DataReader {
             workBook = new XSSFWorkbook(inputStream);
             int totalSheetCount = workBook.getNumberOfSheets();
             try {
-
-                //Initializing GeneralConfig data into Global variables
-                //org.apache.poi.ss.usermodel.Sheet generalConfigSheet = workBook.getSheetAt(0);
-                generalConfigSheet = workBook.getSheet("GeneralConfig");
-
+            generalConfigSheet = workBook.getSheet("GeneralConfig");
                 //This function will initialize all general config variables based on the column names
                 initializegeneralConfigData();
                 //Initializing the test cases
                 for (int sheetNumber = 1; sheetNumber < totalSheetCount; sheetNumber++) {
-                    //Sheet sheet = (Sheet) workBook.getSheetAt(sheetNumber);
                     XSSFSheet sheet = (XSSFSheet) workBook.getSheetAt(sheetNumber);
                     Map<String, DataElements> dataElementsMap = getDataElements(sheet);
 
@@ -86,7 +57,6 @@ public class DataReader {
             }
 
         } else {
-            //logger.error("Data object file not found at: " + file.getAbsolutePath());
             throw new SkipException("Data object file not found at: " + file.getAbsolutePath());
         }
     }
@@ -96,6 +66,7 @@ public class DataReader {
      * @return
      * @description: This function takes a cell as an argument and returns the cell
      * value based on the type of cell value type
+     * @author sandeep
      */
     @SuppressWarnings("deprecation")
     public String getCellData(Cell cell) {
@@ -203,21 +174,6 @@ public class DataReader {
                 case Constants.APP_PACKAGE:
                     GlobalVars.appPackage = getFieldValue(fieldName);
                     break;
-                case Constants.APP_ACTIVITY:
-                    GlobalVars.appActivity = getFieldValue(fieldName);
-                    break;
-                case Constants.APP_WAIT_ACTIVITY:
-                    GlobalVars.appWaitPackage = getFieldValue(fieldName);
-                    break;
-                case Constants.OTP_AUTH_CONNECTION_URL:
-                    GlobalVars.otpAuthConnectionURL = getFieldValue(fieldName);
-                    break;
-                case Constants.OTP_AUTH_DB_USERNAME:
-                    GlobalVars.otpAuthDbUserName = getFieldValue(fieldName);
-                    break;
-                case Constants.OTP_AUTH_DB_PASSWORD:
-                    GlobalVars.otpAuthDbPassword = getFieldValue(fieldName);
-                    break;
 
             }
         } catch (Exception e) {
@@ -275,10 +231,5 @@ public class DataReader {
             }
         }
         return dataElementMap;
-    }
-
-
-    public void setSuiteName(String suite_name) {
-        suiteName = suite_name;
     }
 }

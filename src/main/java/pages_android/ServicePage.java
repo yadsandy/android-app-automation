@@ -14,8 +14,6 @@ import java.util.List;
 public class ServicePage {
 
     // locators for service selection screen
-    @FindBy(xpath = "//android.view.View[@content-desc='Which service do you need?']")
-    public WebElement whichService_Lbl;
     @FindBy(xpath = "//android.view.View/android.widget.ImageView")
     public List<WebElement> listOfServices;
     @FindBy(className = "android.widget.Button")

@@ -17,9 +17,5 @@ public class GlobalVars {
     public static String apkFileName;
     public static String automationName;
     public static String appPackage;
-    public static String appActivity;
-    public static String appWaitPackage;
-    public static String otpAuthConnectionURL;
-    public static String otpAuthDbUserName;
-    public static String otpAuthDbPassword;
+
 }
