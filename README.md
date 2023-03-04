@@ -9,7 +9,9 @@
 <p> - Add your test case classes under `testcases` package </p>
 <p> - Add your test data into `TestData.xslx` file </p>
 <p> - Update `testng.xml` file for test classes </p>
+<p> - Update the pom.xml file with your system version in maven-compiler-plugin for  <source>java-version</source> and <target>18</target>
 <p> - Simply run `mvn clean install` command to run your test cases </p>
+<p> - Check the reports in the target folder > ExtentReports<ExecutionTime> folder for the execution results and logs.
 
 
 <h3> Framework Explanation :</h3>
