@@ -18,6 +18,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+@SuppressWarnings("deprecation")
 public class TestBase extends GlobalVars {
 
     public static int stepNumber = 0;

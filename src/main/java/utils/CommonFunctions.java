@@ -14,6 +14,7 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
+@SuppressWarnings("deprecation")
 public class CommonFunctions extends TestBase {
 
     /**
