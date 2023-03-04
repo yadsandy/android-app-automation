@@ -7,11 +7,8 @@
 <p> - Install SDK and generate an Emulator for the execution with android v12 </p>
 <p> - Setup your IDE (Preferably Eclipse IDE) </p>
 <p> - Import cloned repository as project </p>
-<p> - Add your test case classes under `testcases` package </p>
-<p> - Add your test data into `TestData.xslx` file </p>
-<p> - Update `testng.xml` file for test classes </p>
 <p> - Update the pom.xml file with your system version in maven-compiler-plugin for  <source>java-version</source> and <target>18</target>
-<p> - Simply run `mvn clean install` command  or testng.xml file to run your test cases </p>
+<p> - Simply run `mvn clean install` command or testng.xml file to run your test cases </p>
 <p> - Check the reports in the target folder > ExtentReports<ExecutionTime> folder for the execution results and logs.
 
 
@@ -25,9 +22,9 @@
 5. /src/main/java/utils: contains files having functions like common functions, data reader, appium service builders,
    utils.
 5. /src/main/resources/Apps: it has the .apk file that we need to use for the execution.
-6. /src/main/resources/Testdata: contains testdat file to read the data from the excel.
+6. /src/main/resources/Testdata: contains testdata file `TestData.xslx` to read the data from the excel.
 7. /src/test/java/tests : All the tests files are declare here and also we call the pages methods here to complete the
-   execution.
+   execution. 
 
 <h3> Issue while import project into Intellij IDE </h3>
    
