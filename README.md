@@ -1,46 +1,37 @@
-# Android-Demo-App
+# Android App Automation Using Appium
 
-<h3> Initial Setup: </h3>
+This project defines the automation of android app using appium.
 
-<p> - Install and configure JDK </p>
-<p> - Install and configure Maven </p>
-<p> - Install SDK and generate an Emulator for the execution with android v12 </p>
-<p> - Setup your IDE (Preferably Eclipse IDE) </p>
-<p> - Import cloned repository as project </p>
-<p> - Add TestNg library to the project </p>
-<p> - Update the pom.xml file with your system version in maven-compiler-plugin for  <source>java-version</source> and <target>18</target>
-<p> - Simply run `mvn clean install` command or testng.xml file to run your test cases </p>
-<p> - Check the reports in the target folder > ExtentReports<ExecutionTime> folder for the execution results and logs.
+## Prerequisites for the project
 
+1. Java and set JAVA_HOME
+2. Maven and set MAVEN_HOME
+3. NodeJS
+4. Android Studio
+5. Android SDK and set ANDROID_HOME
+6. IDE (preferred: IntelliJ)
+7. Appium 2.0
 
-<h3> Framework Explanation :</h3>
+   `npm install -g appium`
 
-1. /src/main/java/base : Contains classes which define the appium start and close related functions with the caps and
-   initializations.
-2. /src/main/java/logger: contain class to log the execution of android appium.
-3. /src/main/java/pages: all the pages related to the app are mentioned here with there locators and functions.
-4. /src/main/java/reporters: having report related classes and methods to generate the extent report after execution.
-5. /src/main/java/utils: contains files having functions like common functions, data reader, appium service builders,
-   utils.
-5. /src/main/resources/Apps: it has the .apk file that we need to use for the execution.
-6. /src/main/resources/Testdata: contains testdata file `TestData.xslx` to read the data from the excel.
-7. /src/test/java/tests : All the tests files are declare here and also we call the pages methods here to complete the
-   execution. 
+8. Appium Drivers
 
-<h3> Issue while import project into Intellij IDE </h3>
-   
-* Incase if you are cloning it on Intellij IDE, you might issues related to testng library like :
-   
-<img width="635" alt="Screenshot 39" src="https://user-images.githubusercontent.com/6880146/222898387-7842cac7-d3a2-47b6-858e-477e50b2cd8c.png">
+   `appium driver install uiautomator2`
 
-* In such case you just need to right click on your project > click ok open module structure > Click libraries from project settings > click on + icon > slect 'from maven' option >  search org.testng > select the org.testng version which is already there in your machine> select annotation chekbox as well and click on ok > click apply and click ok.
-   
-<img width="1031" alt="Screenshot 40" src="https://user-images.githubusercontent.com/6880146/222898603-42078b86-eccb-470d-be0c-c94ae072a5ec.png">
+## Execution of Test Cases
 
+Steps:
 
-* Next you need to do is to click on File > Invalidate caches > select clear file system cache and clear VCS logs options > Invalidate and restart.
-   
-<img width="496" alt="Screenshot 41" src="https://user-images.githubusercontent.com/6880146/222898614-10274f1d-eafb-45b0-9bb5-d141e8af6114.png">
+1. Connect real android device or open simulator with the system and update the `android` app and device details
+   in [config.properties](src/test/resources/config.properties)
+2. Check the [testng.xml](src/test/resources/testng.xml) and update or edit the classes and methods based on the need
+3. You can run the test cases using Intellij and terminal.
+    1. **Intellij ::**
+        - Execute the [testng.xml](src/test/resources/testng.xml)
+        - You can see the results in the reports folder based on the latest execution.
+    2. **Terminal ::**
 
-* Now try again by running the testng.xml file.
- 
+    * To run the test suite for android platform
+
+      `mvn clean test`
+

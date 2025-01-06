@@ -1,14 +1,20 @@
 package utils;
 
+import java.time.Duration;
+
+import static utils.PropertyReader.getConfigValue;
+
 public class Constants {
-
-    public static final String PLATFORM = "platform";
-    public static final String APK_FILE_NAME = "apkFileName";
-    public static final String DEVICE_NAME_ANDROID = "deviceNameAndroid";
-    public static final String PLATFORM_VERSION_ANDROID = "platformVersionAndroid";
-    public static final String FILE_DIR = "fileDir";
-    public static final String AUTOMATION_NAME = "automationName";
-    public static final String APP_PACKAGE = "appPackage";
-
-
+    // Appium Constants
+    public static final String APPIUM_SERVER_IP = getConfigValue("appium_server_ip");
+    public static final Duration APPIUM_DRIVER_TIMEOUT = Duration.ofSeconds(
+            Long.parseLong(getConfigValue("appium_driver_timeout_in_seconds"))
+    );
+    // Android Constants
+    public static final String ANDROID_DEVICE_NAME = getConfigValue("android_device_name");
+    public static final String ANDROID_APP_FILE_PATH = getConfigValue("android_app_file_path");
+    public static final String ANDROID_APP_PACKAGE = getConfigValue("android_app_package");
+    public static final String ANDROID_APP_ACTIVITY = getConfigValue("android_app_activity");
+    public static final String ANDROID_NO_RESET = getConfigValue("android_no_reset");
+    public static final String ANDROID_FULL_RESET = getConfigValue("android_full_reset");
 }
