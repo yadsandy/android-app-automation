@@ -53,7 +53,7 @@ public class MobileDriverService {
     }
 
     public void closeDriver() {
-        androidDriver.close();
+        androidDriver.terminateApp(ANDROID_APP_PACKAGE);
     }
 
 }

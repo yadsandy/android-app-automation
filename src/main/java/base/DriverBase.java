@@ -28,7 +28,7 @@ public class DriverBase extends MobileDriverService {
 
     @AfterMethod
     public void closeApp() {
-//        closeDriver();
+        closeDriver();
         stopAppiumService();
     }
 }
